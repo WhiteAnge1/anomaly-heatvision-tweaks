@@ -16,7 +16,7 @@
 - требуется установленный **HeatVision v1.3 [DLTX]**;
 - требуется совместимый modded X-Ray/Monolith с поддержкой HeatVision;
 - рассчитано на используемый в GRA рендер `r3` (DX10/DX11);
-- патч заменяет `gbuffer_stage.h`, `infrared.h`, `z_heatvision.script` и `z_heatvision_mcm.script`, поэтому конфликтует с другими модами, изменяющими те же файлы.
+- патч заменяет `gbuffer_stage.h`, `infrared.h`, `infrared_utils.h`, `z_heatvision.script` и `z_heatvision_mcm.script`, поэтому конфликтует с другими модами, изменяющими те же файлы.
 
 ## Установка через MO2
 

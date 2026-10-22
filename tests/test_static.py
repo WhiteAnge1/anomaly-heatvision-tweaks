@@ -13,6 +13,7 @@ def main() -> None:
     mcm = read("gamedata/scripts/z_heatvision_mcm.script")
     runtime = read("gamedata/scripts/z_heatvision.script")
     shader = read("gamedata/shaders/r3/infrared.h")
+    shader_utils = read("gamedata/shaders/r3/infrared_utils.h")
     ru_path = ROOT / "gamedata/configs/text/rus/heatvision_tweaks_mcm.xml"
     en = read("gamedata/configs/text/eng/heatvision_tweaks_mcm.xml")
     ru_bytes = ru_path.read_bytes()
@@ -28,6 +29,7 @@ def main() -> None:
     assert 'min=0,max=1,step=0.05, def = 0.25' in mcm
     assert f'get_config("{key}")' in runtime
     assert "heatvision_params4.z" in shader
+    assert (shader + shader_utils).count("uniform float4 heatvision_params4;") == 1
     assert "GREEN_CHANNEL_WEIGHT" not in shader
     assert 'encoding="windows-1251"' in ru
     assert 'encoding="utf-8"' in en
