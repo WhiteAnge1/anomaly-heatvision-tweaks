@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+    <string id="ui_mcm_heatvision_green_channel_weight_mcm">
+        <text>Вклад зелёного теплового канала:</text>
+    </string>
+    <string id="ui_mcm_heatvision_green_channel_weight_mcm_desc">
+        <text>Регулирует яркость зелёной тепловой маски частиц и аномалий. Не влияет на красную подсветку людей, мутантов и трупов. Диапазон: 0.00–1.00. По умолчанию: 0.25. 0.00 полностью отключает вклад зелёного канала, 1.00 возвращает исходную полную яркость HeatVision v1.3. Изменение применяется сразу.</text>
+    </string>
+</string_table>
+

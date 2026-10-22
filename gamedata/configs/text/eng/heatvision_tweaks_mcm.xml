@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<string_table>
+    <string id="ui_mcm_heatvision_green_channel_weight_mcm">
+        <text>Green heat-channel contribution:</text>
+    </string>
+    <string id="ui_mcm_heatvision_green_channel_weight_mcm_desc">
+        <text>Controls the intensity of the green heat mask used by particles and anomalies. It does not affect the red channel used by humans, mutants, and corpses. Range: 0.00–1.00. Default: 0.25. 0.00 disables the green contribution; 1.00 restores the original full HeatVision v1.3 intensity. Changes apply immediately.</text>
+    </string>
+</string_table>
+

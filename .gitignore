@@ -1,0 +1,8 @@
+*.zip
+*.7z
+*.log
+__pycache__/
+.pytest_cache/
+build/
+dist/
+
