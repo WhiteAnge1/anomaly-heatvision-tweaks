@@ -17,6 +17,7 @@ def main() -> None:
     ru_path = ROOT / "gamedata/configs/text/rus/heatvision_tweaks_mcm.xml"
     en = read("gamedata/configs/text/eng/heatvision_tweaks_mcm.xml")
     fomod_info = read("fomod/info.xml")
+    fomod_config = read("fomod/ModuleConfig.xml")
     meta = read("meta.ini")
     ru_bytes = ru_path.read_bytes()
     assert not ru_bytes.startswith((b"\xef\xbb\xbf", b"\xff\xfe", b"\xfe\xff"))
@@ -24,6 +25,7 @@ def main() -> None:
     ET.fromstring(ru_bytes)
     ET.fromstring((ROOT / "gamedata/configs/text/eng/heatvision_tweaks_mcm.xml").read_bytes())
     ET.fromstring((ROOT / "fomod/info.xml").read_bytes())
+    fomod_root = ET.fromstring((ROOT / "fomod/ModuleConfig.xml").read_bytes())
 
     key = "green_channel_weight_mcm"
     label = f"ui_mcm_heatvision_{key}"
@@ -40,9 +42,17 @@ def main() -> None:
         assert label in text
         assert desc in text
     assert "Рџ" not in ru and "Рµ" not in ru and "�" not in ru
-    assert "[Патч] HeatVision Green Channel Fix by White_Angel v1.2.0-rc2" in fomod_info
-    assert "<Version>1.2.0-rc2</Version>" in fomod_info
-    assert "version=1.2.0-rc2" in meta
+    expected_name = "[Патч] HeatVision Green Channel Fix by White_Angel v1.2.0-rc3"
+    assert expected_name in fomod_info
+    assert expected_name in fomod_config
+    assert "<Version>1.2.0-rc3</Version>" in fomod_info
+    assert "version=1.2.0-rc3" in meta
+    assert '<plugin name="HeatVision Green Channel Fix">' in fomod_config
+    assert '<type name="Required" />' in fomod_config
+    for entry in fomod_root.findall("./requiredInstallFiles/*"):
+        assert (ROOT / entry.attrib["source"]).exists(), entry.attrib["source"]
+    assert "if update_nvgs and db.actor and get_hud() then" in runtime
+    assert "if (not hud) or (not db.actor) then" in runtime
     print("HeatVision Tweaks static checks: OK")
 
 

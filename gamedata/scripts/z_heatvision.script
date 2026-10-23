@@ -66,7 +66,7 @@ function on_option_change()
 
 		-- MCM applies this runtime shader parameter immediately. No shader-cache
 		-- rebuild is needed after the patched shader has been compiled once.
-		if update_nvgs then
+		if update_nvgs and db.actor and get_hud() then
 			update_nvgs()
 		end
 end
@@ -445,6 +445,9 @@ local nv_hud = { x = 0, y = 0, height = (device().height * h_multi), weight = (d
 
 function set_nightvision_HUD(bShow)
 	local hud = get_hud()
+	if (not hud) or (not db.actor) then
+		return
+	end
 	local drk = hud:GetCustomStatic("nv_tunnel")
 	local wnd
 	

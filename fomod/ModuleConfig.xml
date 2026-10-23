@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://qconsulting.ca/fo3/ModConfig5.0.xsd">
+    <moduleName>[Патч] HeatVision Green Channel Fix by White_Angel v1.2.0-rc3</moduleName>
+    <requiredInstallFiles>
+        <folder source="gamedata" destination="gamedata" priority="0" />
+        <file source="README.md" destination="README.md" priority="0" />
+        <file source="CHANGELOG.md" destination="CHANGELOG.md" priority="0" />
+        <file source="THIRD_PARTY_NOTICES.md" destination="THIRD_PARTY_NOTICES.md" priority="0" />
+    </requiredInstallFiles>
+    <installSteps order="Explicit">
+        <installStep name="Установка патча">
+            <optionalFileGroups order="Explicit">
+                <group name="Компонент" type="SelectExactlyOne">
+                    <plugins order="Explicit">
+                        <plugin name="HeatVision Green Channel Fix">
+                            <description>Обязательное исправление HeatVision и настройка зелёного канала в MCM.</description>
+                            <typeDescriptor><type name="Required" /></typeDescriptor>
+                        </plugin>
+                    </plugins>
+                </group>
+            </optionalFileGroups>
+        </installStep>
+    </installSteps>
+</config>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <fomod>
-    <Name>[Патч] HeatVision Green Channel Fix by White_Angel v1.2.0-rc2</Name>
+    <Name>[Патч] HeatVision Green Channel Fix by White_Angel v1.2.0-rc3</Name>
     <Author>White_Angel</Author>
-    <Version>1.2.0-rc2</Version>
+    <Version>1.2.0-rc3</Version>
     <Description>Исправление ложной тепловой маски на статической геометрии и настраиваемый вклад зелёного канала для HeatVision v1.3.</Description>
     <Website>https://github.com/WhiteAnge1/anomaly-heatvision-tweaks</Website>
 </fomod>
