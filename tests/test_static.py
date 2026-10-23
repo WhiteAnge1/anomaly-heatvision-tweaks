@@ -16,11 +16,14 @@ def main() -> None:
     shader_utils = read("gamedata/shaders/r3/infrared_utils.h")
     ru_path = ROOT / "gamedata/configs/text/rus/heatvision_tweaks_mcm.xml"
     en = read("gamedata/configs/text/eng/heatvision_tweaks_mcm.xml")
+    fomod_info = read("fomod/info.xml")
+    meta = read("meta.ini")
     ru_bytes = ru_path.read_bytes()
     assert not ru_bytes.startswith((b"\xef\xbb\xbf", b"\xff\xfe", b"\xfe\xff"))
     ru = ru_bytes.decode("cp1251")
     ET.fromstring(ru_bytes)
     ET.fromstring((ROOT / "gamedata/configs/text/eng/heatvision_tweaks_mcm.xml").read_bytes())
+    ET.fromstring((ROOT / "fomod/info.xml").read_bytes())
 
     key = "green_channel_weight_mcm"
     label = f"ui_mcm_heatvision_{key}"
@@ -37,6 +40,9 @@ def main() -> None:
         assert label in text
         assert desc in text
     assert "Рџ" not in ru and "Рµ" not in ru and "�" not in ru
+    assert "[Патч] HeatVision Green Channel Fix by White_Angel v1.2.0-rc2" in fomod_info
+    assert "<Version>1.2.0-rc2</Version>" in fomod_info
+    assert "version=1.2.0-rc2" in meta
     print("HeatVision Tweaks static checks: OK")
 
 
